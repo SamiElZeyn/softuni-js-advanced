@@ -8,6 +8,6 @@ function processOddPositions (arr) {
             result.push(arr[i]);
         }
     }
-    console.log(result.map((x) => x * 2).reverse().join(" "));
+    return result.map((x) => x * 2).reverse().join(" ");
 }
 processOddPositions ([3, 0, 10, 4, 7, 3])
