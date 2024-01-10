@@ -18,7 +18,7 @@ function equalNeighbors (arr) {
             }
         }
     }
-    console.log(counter);
+    return counter;
 }
 equalNeighbors ([['2', '3', '4', '7', '0'],
                  ['4', '0', '5', '3', '4'],
