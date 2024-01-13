@@ -15,8 +15,8 @@ const createAssemblyLine = () => ({
         const template = {
             currentTrack: { name: null, artist: null },
             nowPlaying: function nowPlaying() {
-                if (currentTrack !== null) {
-                    console.log(`Now playing '${currentTrack.name}' by ${currentTrack.artist}`);
+                if (obj.currentTrack !== null) {
+                    console.log(`Now playing '${obj.currentTrack.name}' by ${obj.currentTrack.artist}`);
                 }
             },
         };
