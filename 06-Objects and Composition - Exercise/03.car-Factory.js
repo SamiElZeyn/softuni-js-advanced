@@ -1,44 +1,47 @@
-function carFactory (data) {
-    let res = {
-        model: data.model
-    }
-    let power = data.power
-    if (power <= 90) {
-        res.engine = {
-            power: 90, 
-            volume: 1800
-        }
-    } else if (power <= 120) {
-        res.engine = {
-            power: 120, 
-            volume: 2400
-        }
-    } else {
-        res.engine = {
-            power: 200, 
-            volume: 3500
-        }
-    }
+function carFactory(data) {
 
+    let model = data.model;
+    let power = data.power;
     let carriage = data.carriage;
+    let wheelsize = data.wheelsize;
+    let color = data.color;
 
-    if (carriage = 'hatchback') {
-        res.carriage = { type: 'hatchback', color: data.color }
-    } else {
-        res.carriage = { type: 'coupe', color: data.color }
+    let res = {}
+
+    let engineEnum = {
+        "Small engine": { power: 90, volume: 1800 },
+        "Normal engine": { power: 120, volume: 2400 },
+        "Monster engine": { power: 200, volume: 3500 },
     }
 
-    let wheelsize = data.wheelsize;
+    let carriageEnum = {
+        "hatchback": { type: 'hatchback', color },
+        "coupe": { type: 'coupe', color },
+
+    }
+
+    res.model = model;
+    
+    if (power <= 90) {
+        res.engine = engineEnum["Small engine"]
+    } else if (power <= 120) {
+        res.engine = engineEnum["Normal engine"]
+    } else {
+        res.engine = engineEnum["Monster engine"]
+    }
+
+    res.carriage = carriageEnum[carriage];
 
     if (wheelsize % 2 === 0) {
         wheelsize -= 1;
     }
-    res.wheels = [wheelsize, wheelsize, wheelsize, wheelsize]
-    console.table(res)
-
+    res.wheels = new Array(4).fill(wheelsize);
+    return res;
 }
-carFactory ({ model: 'VW Golf II',
-power: 90,
-color: 'blue',
-carriage: 'hatchback',
-wheelsize: 14 })
+carFactory({
+    model: 'VW Golf II',
+    power: 90,
+    color: 'blue',
+    carriage: 'hatchback',
+    wheelsize: 14
+})
