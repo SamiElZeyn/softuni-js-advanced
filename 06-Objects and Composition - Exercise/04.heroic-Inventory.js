@@ -8,7 +8,6 @@ function heroicInventory (input) {
         result.push({name, level, items});
     }
     console.log(JSON.stringify(result));
-   
 }
 heroicInventory (['Isacc / 25 / Apple, GravityGun',
 'Derek / 12 / BarrelVest, DestructionSword',
